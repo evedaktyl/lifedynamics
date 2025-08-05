@@ -19,7 +19,7 @@ export default function Navbar() {
         </Link>
 
         {/* Nav links flush right */}
-        <div className="flex items-center space-x-10 text-white text-md font-medium font-logo">
+        <div className="flex flex-wrap items-center space-x-10 text-white text-md font-medium font-logo">
           {[
             ['Introduction', '/profile'],
             ['Our Services', '/services'],
