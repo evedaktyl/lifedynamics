@@ -45,7 +45,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 px-4">
           <div className="w-full md:w-1/2">
             <Image
-              src="/profile.jpg"
+              src="/profile2.jpg"
               alt="Celine Veron Chai"
               width={600}
               height={600}
