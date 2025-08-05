@@ -18,7 +18,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="w-full bg-grey shadow-md relative">
+    <nav className="w-full bg-grey shadow-md relative z-50">
       <div className="w-full flex items-center justify-between px-6 py-2">
         {/* Logo flush left */}
         <Link href="/" className="flex-shrink-0">
@@ -77,7 +77,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-grey">
+        <div className="md:hidden absolute top-full left-0 w-full bg-grey z-50">
           <div className="flex flex-col px-6 py-4 space-y-4 text-white text-md font-medium font-logo">
             {navItems.map(([label, href]) => (
               <Link

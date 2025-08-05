@@ -18,7 +18,7 @@ export default function HomePage() {
         Your life.
       </p>
       <Link href="/book"
-        className="inline-block bg-accent hover:bg-accent/90 text-neutral-dark font-semibold px-8 py-3 rounded-lg shadow-lg transition">
+        className="inline-block bg-support-pink hover:bg-support-pink/90 text-neutral-dark font-semibold px-8 py-3 rounded-lg shadow-lg transition">
           Book a Session
       </Link>
     </div>
