@@ -4,6 +4,7 @@
 
 
 :root {
+  color-scheme: light;
   --background: #f8f8f8;
   --foreground: #2c3e50;
   --font-body: 'Montserrat', sans-serif;
@@ -23,13 +24,6 @@
   --color-support-pink: #efbfc2;
   --color-neutral-dark: #2C3E50;
   --color-grey: #91a7b2;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #fcfaf8;
-  }
 }
 
 body {
