@@ -1,12 +1,25 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  // your nav items
+  const navItems: [string, string][] = [
+    ['Introduction', '/profile'],
+    ['Our Services', '/services'],
+    ['Testimonies', '/testimonies'],
+    ['Gallery', '/gallery'],
+    ['Contact Us', '/contact'],
+  ];
+
   return (
-    <nav className="w-full bg-grey shadow-md">
-      <div className="w-full flex items-center justify-between px-6 py-3">
+    <nav className="w-full bg-grey shadow-md relative">
+      <div className="w-full flex items-center justify-between px-6 py-2">
         {/* Logo flush left */}
         <Link href="/" className="flex-shrink-0">
           <Image
@@ -18,15 +31,9 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Nav links flush right */}
-        <div className="flex flex-wrap items-center space-x-10 text-white text-md font-medium font-logo">
-          {[
-            ['Introduction', '/profile'],
-            ['Our Services', '/services'],
-            ['Testimonies', '/testimonies'],
-            ['Gallery', '/gallery'],
-            ['Contact Us', '/contact'],
-          ].map(([label, href]) => (
+        {/* Desktop links */}
+        <div className="hidden md:flex flex-wrap items-center space-x-10 text-white text-md font-medium font-logo">
+          {navItems.map(([label, href]) => (
             <Link
               key={href}
               href={href}
@@ -43,7 +50,7 @@ export default function Navbar() {
             </Link>
           ))}
 
-          {/* Book Button */}
+          {/* Book Now button */}
           <Link
             href="/book"
             className="
@@ -51,13 +58,52 @@ export default function Navbar() {
               bg-accent-blue hover:bg-blue-600
               text-white text-sm font-semibold
               px-4 py-2 rounded-md
-              transition mr-10
+              transition
             "
           >
             Book Now
           </Link>
         </div>
+
+        {/* Mobile menu toggle */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setOpen((o) => !o)}
+          aria-label="Toggle menu"
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {open && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-grey">
+          <div className="flex flex-col px-6 py-4 space-y-4 text-white text-md font-medium font-logo">
+            {navItems.map(([label, href]) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setOpen(false)}
+                className="block pb-1 hover:underline"
+              >
+                {label}
+              </Link>
+            ))}
+            <Link
+              href="/book"
+              onClick={() => setOpen(false)}
+              className="
+                bg-accent-blue hover:bg-blue-600
+                text-white text-sm font-semibold
+                px-4 py-2 rounded-md
+                transition
+              "
+            >
+              Book Now
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

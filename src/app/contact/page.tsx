@@ -60,7 +60,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className='bg-background mt-20 ml-20'>
+    <div className='bg-background'>
       <h1 className="text-2xl font-semibold mb-6">Contact Us</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4 max-w-2xl">
